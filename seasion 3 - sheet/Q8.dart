@@ -12,7 +12,7 @@ void main()
     } 
   } 
   else  {
-    String userName = raw ?? "unknown";
+    String userName = raw;
     print("Hello, $userName");
   };
 }
