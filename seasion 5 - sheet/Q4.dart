@@ -4,8 +4,8 @@ void main() {
   print("Number of words: $wordCount");
 
 
-   var words = dart.trim().split(" ");
-   var counts = {};
+  var words = dart.trim().split(" ");
+  var counts = {};
 
 
   for (var w in words) {
