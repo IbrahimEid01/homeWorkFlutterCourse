@@ -3,9 +3,10 @@ class Solution {
     int result = 0;
 
     for (int num in nums) {
-      result ^= num; // XOR operation
+      result ^= num; 
     }
 
     return result;
   }
 }
+

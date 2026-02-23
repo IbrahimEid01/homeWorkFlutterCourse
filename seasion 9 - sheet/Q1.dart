@@ -2,8 +2,9 @@
 class Vehicle {
 
   String _name;
-  double _fuelCapacity; 
-  double _fuelEfficiency; 
+  
+  double _fuelCapacity; //fuel capacity in liters
+  double _fuelEfficiency; // fuel efficiency in km/liter
 
   
   Vehicle(this._name, this._fuelCapacity, this._fuelEfficiency) {
@@ -28,7 +29,7 @@ class Vehicle {
 
 
 class Truck extends Vehicle {
-  double _loadWeight; // tons
+  double _loadWeight; 
 
   Truck(String name, double fuelCap, double efficiency, this._loadWeight)
       : super(name, fuelCap, efficiency) {
@@ -40,7 +41,6 @@ class Truck extends Vehicle {
 
   @override
   double computeFuel(double distance) {
-    // Truck consumes more fuel depending on load
     return (distance / 8) + (_loadWeight * 2);
   }
 
@@ -53,7 +53,7 @@ class Truck extends Vehicle {
 
 
 class ElectricCar extends Vehicle {
-  double _batteryHealth; // %
+  double _batteryHealth; 
 
   ElectricCar(String name, double fuelCap, double efficiency,
       this._batteryHealth)
@@ -66,14 +66,13 @@ class ElectricCar extends Vehicle {
 
   @override
   double computeFuel(double distance) {
-    // Battery health reduces effective efficiency
-    double factor = _batteryHealth / 100;
+        double factor = _batteryHealth / 100;
     return distance / (_fuelEfficiency * factor);
   }
 
   @override
   bool canComplete(double distance) {
-    // Constraint: Cannot drive if battery health < 30%
+
     return _batteryHealth >= 30 && super.canComplete(distance);
   }
 }
@@ -97,7 +96,7 @@ class ElectricCar extends Vehicle {
       print("Trip: $d km → Fuel Needed: ${fuel.toStringAsFixed(2)} L");
 
       if (!v.canComplete(d)) {
-        print("❌ Cannot complete this route!");
+        print(" Cannot complete this route!");
       }
     }
   }
